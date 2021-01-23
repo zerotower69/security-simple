@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: first-security-server
+  profiles:
+    active: dev

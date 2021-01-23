@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        enabled: false
+      discovery:
+        enabled: true
+        server-addr: 182.92.200.48:8848
+        group: security

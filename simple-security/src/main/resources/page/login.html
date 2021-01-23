@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>登录页面</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.14.1/lib/theme-chalk/index.css" />
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js" ,></script>
+    <!-- import JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/element-ui@2.14.1/lib/index.js"></script>
+    <div id="app">
+        <el-form :model="form" ref="form" label-width="80px" :inline="false" size="normal" action="/login" method="post" label-position="left">
+            <el-form-item label="账号">
+                <el-input type="text" v-model="form.username" name="username"></el-input>
+            </el-form-item>
+            <el-form-item label="密码">
+                <el-input type="password" v-model="form.password" name="password"></el-input>
+            </el-form-item>
+            <el-form-item label="验证码">
+                <el-input type="text" placeholder="验证码" name="verifyCode" aria-required="true" v-model="form.code"></el-input>
+                <img src="getVerifyCode" title="看不清，请点我" onclick="refresh(this)" onmouseover="mouseover(this)">
+            </el-form-item>
+            <el-form-item>
+                <label><input type="checkbox" name="remember-me"/>自动登录</label>
+                <el-button type="primary" native-type="submit" :loading="loading">立刻登录</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+</body>
+<script>
+    function refresh(obj) {
+        obj.src = "getVerifyCode?" + Math.random();
+    }
+    function mouseover(obj) { obj.style.cursor = "pointer"; }
+</script>
+<script>
+    new Vue({
+        el: "#app",
+        data: function() {
+            return {
+                form: {
+                    username: "",
+                    password: "",
+                    code:""
+                },
+                loading: false,
+            };
+        },
+        methods: {
+            // onSubmit() {
+            //     if (this.form.username === "") {
+            //         this.$message.error("账号不得为空");
+            //         return;
+            //     }
+            //     if (this.form.password === "") {
+            //         this.$message.error("密码不得为空");
+            //         return;
+            //     }
+            //     this.$message.success("验证通过");
+            // },
+        },
+    });
+</script>
+<style>
+    .el-form {
+        width: 50%;
+        text-align: center;
+    }
+</style>
+
+</html>
