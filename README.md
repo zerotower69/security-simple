@@ -4,7 +4,7 @@
 欢迎大家下载参考，记得给我star!!
 ### 自我推荐个人主页 
 
-### [zerotower的技术小屋](https://www.zerotower.xyz)
+### [zerotower的技术小屋](https://www.zerotower.cn)
 
 ## springboot版本号说明
 
